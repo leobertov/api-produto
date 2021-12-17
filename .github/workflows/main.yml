@@ -41,11 +41,3 @@ jobs:
           tags: |
             leoberto89/api-bootcamp-produto:latest
             leoberto89/api-bootcamp-produto:${(github.run_number)}
-            
-          
-          
-          
-          
-          
-          
-          

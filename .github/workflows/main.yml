@@ -55,12 +55,17 @@ jobs:
           # Contents of kubeconfig file
           kubeconfig: ${{secrets.K8S_CONFIG}}
           
-      - name: Deploy to Kubernetes cluster
+      - name: Deploy MongoDB
         uses: Azure/k8s-deploy@v1.5
         with:
           manifests: |
             k8s/mongodb/deployment.yaml
             k8s/mongodb/service.yaml
+            
+      - name: Deploy API
+        uses: Azure/k8s-deploy@v1.5
+        with:
+          images: leoberto89/api-bootcamp-produto:${{github.run_number}}
+          manifests: |
             k8s/api/deployment.yaml
             k8s/api/service.yaml
-            

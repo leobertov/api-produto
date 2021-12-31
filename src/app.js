@@ -19,6 +19,10 @@ const metricsMiddleware = promBundle({
             } 
     });
 
+app.get('/download', function(req, res) {
+    const file = `${__dirname}/file.txt`;
+    res.download(file); // Set disposition and send it.
+ });
 app.use(metricsMiddleware);
 app.use(config.middlewares.healthMid);
 app.use('/', config.routers);

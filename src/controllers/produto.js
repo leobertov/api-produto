@@ -70,3 +70,4 @@ exports.productDelete = function (req, res) {
         res.send('');
     })
 };
+
